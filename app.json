@@ -1,11 +1,11 @@
 {
   "expo": {
-    "name": "GymBrov2",
-    "slug": "GymBrov2",
+    "name": "GymBro",
+    "slug": "GymBro",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
-    "scheme": "myapp",
+    "scheme": "GymBro",
     "userInterfaceStyle": "automatic",
     "splash": {
       "image": "./assets/images/splash.png",
