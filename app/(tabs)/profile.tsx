@@ -1,9 +1,12 @@
 import { Text, View } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
-export default function Index() {
+const Profile = () => {
   return (
-    <View className="flex-1 items-center justify-center bg-primary">
+    <SafeAreaView className="flex-1 items-center justify-center bg-primary">
       <Text className="text-3xl font-rregular">Perfil</Text>
-    </View>
+    </SafeAreaView>
   );
 }
+
+export default Profile;

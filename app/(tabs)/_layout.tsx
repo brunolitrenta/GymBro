@@ -1,8 +1,8 @@
 import React from 'react'
-import { Tabs, Redirect } from 'expo-router'
+import { Tabs } from 'expo-router'
 import { FontAwesome5, FontAwesome6 } from '@expo/vector-icons'
 
-export default function TabsLayout(){
+const TabsLayout = () => {
     return (
         <Tabs screenOptions={{
             tabBarActiveTintColor: 'black',
@@ -36,3 +36,5 @@ export default function TabsLayout(){
         </Tabs>
     )
 }
+
+export default TabsLayout;

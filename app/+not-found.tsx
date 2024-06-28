@@ -1,7 +1,7 @@
 import { Link, Stack } from 'expo-router';
 import { View, StyleSheet } from 'react-native';
 
-export default function NotFoundScreen() {
+const NotFoundScreen = () => {
   return (
     <>
       <Stack.Screen options={{ title: "Oops! This screen doesn't exist." }} />
@@ -18,3 +18,5 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
 });
+
+export default NotFoundScreen;

@@ -5,7 +5,7 @@ import { router } from "expo-router";
 import { months, weeks } from "../constants/Calendar";
 import { SafeAreaView } from "react-native-safe-area-context";
 
-export default function Calendario() {
+const Calendario = () => {
 
     const [monthLength, setMonthLength] = useState<number[]>([]);
     const monthIndex: number = new Date().getMonth();
@@ -30,7 +30,7 @@ export default function Calendario() {
 
     return (
         <SafeAreaView className="flex-1 flex-column justify-evenly items-center">
-            <View className="flex-row w-5/6 h-8 justify-between">
+            <View className="flex-row w-5/6 h-8 justify-between items-center">
                 <TouchableOpacity onPress={() => router.back()}>
                     <FontAwesome6 name="arrow-left" size={32} color="black" />
                 </TouchableOpacity>
@@ -78,3 +78,5 @@ export default function Calendario() {
         </SafeAreaView>
     );
 }
+
+export default Calendario;

@@ -4,7 +4,7 @@ import { useEffect } from "react";
 
 SplashScreen.preventAutoHideAsync();
 
-export default function RootLayout() {
+const RootLayout = () => {
 
   const [fontsLoaded, error] = useFonts({
     "Rubik-Regular": require("../assets/fonts/Rubik-Regular.ttf"),
@@ -13,9 +13,9 @@ export default function RootLayout() {
   });
 
   useEffect(() => {
-    if(error) throw error;
+    if (error) throw error;
 
-    if(fontsLoaded) SplashScreen.hideAsync();
+    if (fontsLoaded) SplashScreen.hideAsync();
 
   }, [fontsLoaded, error]);
 
@@ -23,9 +23,12 @@ export default function RootLayout() {
 
   return (
     <Stack>
-      <Stack.Screen name="(tabs)" options={{headerShown: false}}/>
-      <Stack.Screen name="calendar" options={{headerShown: false}}/>
-      <Stack.Screen name="testmodal" options={{headerShown: false, presentation: "transparentModal", animation:"fade" }}/>
+      <Stack.Screen name="(tabs)" options={{ headerShown: false, statusBarTranslucent: true }} />
+      <Stack.Screen name="calendar" options={{ headerShown: false, statusBarTranslucent: true }} />
+      <Stack.Screen name="creditsModal" options={{ headerShown: false, statusBarTranslucent: true, presentation: "transparentModal", animation: "fade" }} />
+      <Stack.Screen name="addWorkoutModal" options={{ headerShown: false, statusBarTranslucent: true, presentation: "transparentModal", animation: "fade" }} />
     </Stack>
   );
 }
+
+export default RootLayout;
