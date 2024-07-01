@@ -21,7 +21,7 @@ const WorkoutPlan = () => {
         params: { label: item.label, exercises: JSON.stringify(item.exercises) },
       }}>
         <Pressable className="w-full h-20 bg-secondary mb-3 rounded-3xl flex-row justify-around p-2 items-center">
-          <Text className="font-rbold text-5xl text-white">{item.label}</Text>
+          <Text className="font-rbold text-5xl h-10 text-white">{item.label}</Text>
           {
             item.muscle.length > 1
               ?
@@ -36,7 +36,6 @@ const WorkoutPlan = () => {
           }
         </Pressable>
       </Link>
-
     );
   }
 

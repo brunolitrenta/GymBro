@@ -29,10 +29,6 @@ const AddWorkoutModal = () => {
     setButtonsDisabled(Object.keys(labels));
   };
 
-  useEffect(() => {
-    labelsSelecionadas(saveWorkout)
-  }, [saveWorkout])
-
   function filterData() {
     const filteredData = workoutData.filter(ex => ex.bp == bodyAreaSelected);
 
@@ -46,8 +42,16 @@ const AddWorkoutModal = () => {
 
   function addWorkout() {
 
-    if (!selectedLabel || selectedId.length == 0) {
-      Alert.alert('Você não pode deixar campos em branco.');
+    if (!selectedLabel && selectedId.length == 0) {
+      Alert.alert('Atenção',  'Você precisa preencher todos as informações do seu novo treino.');
+      return
+    }
+    else if (selectedId.length == 0) {
+      Alert.alert('Atenção', 'Você precisa selecionar os exercícios desejados.');
+      return
+    }
+    else if (!selectedLabel) {
+      Alert.alert('Atenção','Você precisa escolher uma etiqueta.');
       return
     }
 
@@ -64,6 +68,10 @@ const AddWorkoutModal = () => {
     setSaveWorkout((prevArray) => [...prevArray, newWorkout]);
     router.back();
   }
+
+  useEffect(() => {
+    labelsSelecionadas(saveWorkout)
+  }, [saveWorkout])
 
   function renderExercise({ item }: { item: IExercise }) {
 
@@ -117,7 +125,7 @@ const AddWorkoutModal = () => {
             }
           </View>
         </View>
-        <View className='w-11/12 h-1/4'>
+        <View className='w-11/12 h-1/5'>
           <Text className='text-textcolor font-rbold ml-2 text-xl'>Partes do corpo</Text>
           <View className='w-full h-full items-center'>
             <View className='flex-wrap h-5/6 w-11/12 content-between '>
@@ -142,10 +150,10 @@ const AddWorkoutModal = () => {
           />
         </View>
         <View className='absolute w-full bg-secondary h-14 top-[95%] rounded-b-2xl justify-center items-center'>
-          <Pressable onPress={() => { addWorkout() }} className='w-11/12 h-5/6 bg-stronggreen rounded-xl justify-evenly items-center flex-row'>
+          <TouchableOpacity activeOpacity={0.7} onPress={() => { addWorkout() }} className='w-11/12 h-5/6 bg-stronggreen rounded-xl justify-evenly items-center flex-row'>
             <Text className='text-2xl font-rbold'>Adicionar treino</Text>
             <FontAwesome5 name="check" size={28} color="black" />
-          </Pressable>
+          </TouchableOpacity>
         </View>
       </View>
     </View>
