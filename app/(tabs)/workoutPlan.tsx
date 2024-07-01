@@ -1,23 +1,55 @@
-import { FontAwesome5, FontAwesome6 } from "@expo/vector-icons";
+import { AntDesign, FontAwesome6 } from "@expo/vector-icons";
 import { Link, router } from "expo-router";
-import { Pressable, Text, TouchableOpacity, View } from "react-native";
+import { FlatList, Pressable, Text, TouchableOpacity, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { weekDays } from "@/constants/weekDays";
+import { useWorkout } from "@/hooks/workoutContext";
+import { ISaveWorkout } from "@/interfaces/ISaveWorkout";
 
 const WorkoutPlan = () => {
 
   const dayWeek = new Date().getDay();
 
+  const { saveWorkout } = useWorkout();
+
+  function renderWorkout({ item }: { item: ISaveWorkout }) {
+
+    return (
+
+      <Link asChild href={{
+        pathname: '[label]',
+        params: { label: item.label, exercises: JSON.stringify(item.exercises) },
+      }}>
+        <Pressable className="w-full h-20 bg-secondary mb-3 rounded-3xl flex-row justify-around p-2 items-center">
+          <Text className="font-rbold text-5xl text-white">{item.label}</Text>
+          {
+            item.muscle.length > 1
+              ?
+              <View className="flex-row justify-evenly w-1/2">
+                <Text className="font-rregular text-2xl text-white">{item.muscle[0]},</Text>
+                <Text className="font-rregular text-2xl text-white">{item.muscle[1]}</Text>
+              </View>
+              :
+              <View className="flex-row justify-evenly w-1/2">
+                <Text className="font-rregular text-2xl text-white">{item.muscle[0]}</Text>
+              </View>
+          }
+        </Pressable>
+      </Link>
+
+    );
+  }
+
   return (
     <SafeAreaView className="flex-1 items-center justify-evenly bg-primary">
-      <View className="flex-row w-5/6 h-8 justify-between items-center">
-        <TouchableOpacity onPress={() => router.back()}>
+      <View className="flex-row w-5/6 justify-between items-center">
+        <TouchableOpacity className="h-12 w-10 items-center justify-center" onPress={() => router.back()}>
           <FontAwesome6 name="arrow-left" size={32} color="textcolor" />
         </TouchableOpacity>
         <Text className="font-rbold text-3xl color-textcolor">Treinos</Text>
         <Link asChild href="addWorkoutModal">
-          <TouchableOpacity>
-            <FontAwesome6 name="plus" size={34} color="textcolor" />
+          <TouchableOpacity className="h-12 w-10 items-center justify-center">
+            <AntDesign name="pluscircle" size={40} color="#A3A65B" />
           </TouchableOpacity>
         </Link>
       </View>
@@ -43,6 +75,25 @@ const WorkoutPlan = () => {
           </View>
         </Pressable>
       </Link>
+      <View className={saveWorkout.length == 0 ? "w-11/12 h-2/4 items-center" : "w-11/12 h-2/4"}>
+        {
+          saveWorkout.length == 0
+            ?
+            <View className="w-5/6 h-full justify-center items-center">
+              <Text className='text-secondary font-rbold ml-2 text-base text-center'>Você não possui nenhum treino, adicione um clicando no + no canto superior direito.
+              </Text>
+            </View>
+            :
+            <Text className='text-darkgreen font-rbold ml-2 text-base'>Plano de treinos atual</Text>
+        }
+        <View className="w-full h-full">
+          <FlatList
+            data={saveWorkout}
+            renderItem={renderWorkout}
+            keyExtractor={(item, index) => index.toString()}
+          />
+        </View>
+      </View>
     </SafeAreaView>
   );
 }

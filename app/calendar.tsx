@@ -31,7 +31,7 @@ const Calendario = () => {
     return (
         <SafeAreaView className="flex-1 flex-column justify-evenly items-center">
             <View className="flex-row w-5/6 h-8 justify-between items-center">
-                <TouchableOpacity onPress={() => router.back()}>
+                <TouchableOpacity className="h-12 w-10 items-center justify-center" onPress={() => router.back()}>
                     <FontAwesome6 name="arrow-left" size={32} color="black" />
                 </TouchableOpacity>
                 <Text className="font-rbold text-3xl">Calendário</Text>

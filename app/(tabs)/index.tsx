@@ -11,7 +11,7 @@ const Index = () => {
   return (
     <SafeAreaView className="flex-1 flex-column items-center justify-evenly bg-primary">
       <View className="flex-row justify-between w-11/12 h-9 items-center">
-        <Text className="text-3xl font-rbold">Bem vindo</Text>
+        <Text className="text-3xl font-rbold text-textcolor">Bem vindo</Text>
         <Link asChild href="creditsModal">
           <Pressable className="bg-lightgreen w-14 h-14 justify-center items-center rounded-full">
             <MaterialCommunityIcons name="teddy-bear" size={38} color="black" />
@@ -41,32 +41,32 @@ const Index = () => {
         </View>
       </View>
       <Link asChild href="calendar">
-        <Pressable className="w-11/12 h-16 rounded-3xl">
+        <Pressable className="w-11/12 h-24 rounded-3xl">
           <View className="flex-row justify-evenly w-full h-16 bg-secondary rounded-3xl">
             {
               [...Array(5)].map((_, index) => {
                 return (
-                  <View key={index} className="items-center justify-evenly h-16">
+                  <View key={index} className="items-center justify-evenly h-14">
                     <Text className="color-white font-rsemi h-6 text-lg">{weekDays[(dayWeek + index - 2 + 7) % 7]}</Text>
-                    <View className="w-7 h-2 bg-grayish rounded-full" />
+                    <View className="w-8 h-2 bg-grayish rounded-full" />
                   </View>
                 )
               })
             }
           </View>
-          <View className="flex-row justify-end w-full">
-            <Text className="mr-2 font-rregular">Acessar calendário</Text>
+          <View className="flex-row justify-end w-full h-8 items-center">
+            <Text className="mr-2 font-rsemi">Acessar calendário</Text>
             <FontAwesome6 name="arrow-right" size={20} color="black" />
           </View>
         </Pressable>
       </Link>
       <Link asChild href="progress">
-        <Pressable className="w-11/12 h-48">
+        <Pressable className="w-11/12 h-56">
           <View className="h-48 bg-lightgreen rounded-3xl justify-center items-center">
             <Image resizeMode="stretch" source={require("../../assets/images/chart-line.png")} style={{ height: 175, width: 280 }}></Image>
           </View>
-          <View className="flex-row justify-end w-full">
-            <Text className="mr-2 font-rregular">Acompanhar progresso</Text>
+          <View className="flex-row justify-end w-full h-8 items-center">
+            <Text className="mr-2 font-rsemi">Acompanhar progresso</Text>
             <FontAwesome6 name="arrow-right" size={20} color="black" />
           </View>
         </Pressable>

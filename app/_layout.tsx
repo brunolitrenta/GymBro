@@ -1,6 +1,7 @@
 import { SplashScreen, Stack } from "expo-router";
 import { useFonts } from "expo-font";
 import { useEffect } from "react";
+import { WorkoutContextProvider } from "@/hooks/workoutContext";
 
 SplashScreen.preventAutoHideAsync();
 
@@ -22,12 +23,15 @@ const RootLayout = () => {
   if (!fontsLoaded && !error) return null;
 
   return (
-    <Stack>
-      <Stack.Screen name="(tabs)" options={{ headerShown: false, statusBarTranslucent: true }} />
-      <Stack.Screen name="calendar" options={{ headerShown: false, statusBarTranslucent: true }} />
-      <Stack.Screen name="creditsModal" options={{ headerShown: false, statusBarTranslucent: true, presentation: "transparentModal", animation: "fade" }} />
-      <Stack.Screen name="addWorkoutModal" options={{ headerShown: false, statusBarTranslucent: true, presentation: "transparentModal", animation: "fade" }} />
-    </Stack>
+    <WorkoutContextProvider>
+      <Stack>
+        <Stack.Screen name="(tabs)" options={{ headerShown: false, statusBarTranslucent: true }} />
+        <Stack.Screen name="calendar" options={{ headerShown: false, statusBarTranslucent: true }} />
+        <Stack.Screen name="creditsModal" options={{ headerShown: false, statusBarTranslucent: true, presentation: "transparentModal", animation: "fade" }} />
+        <Stack.Screen name="addWorkoutModal" options={{ headerShown: false, statusBarTranslucent: true, presentation: "transparentModal", animation: "fade" }} />
+        <Stack.Screen name="[label]" options={{ headerShown: false, statusBarTranslucent: true }} />
+      </Stack>
+    </WorkoutContextProvider>
   );
 }
 
