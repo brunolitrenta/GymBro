@@ -30,6 +30,7 @@ const RootLayout = () => {
         <Stack.Screen name="creditsModal" options={{ headerShown: false, statusBarTranslucent: true, presentation: "transparentModal", animation: "fade" }} />
         <Stack.Screen name="addWorkoutModal" options={{ headerShown: false, statusBarTranslucent: true, presentation: "transparentModal", animation: "fade" }} />
         <Stack.Screen name="[label]" options={{ headerShown: false, statusBarTranslucent: true }} />
+        <Stack.Screen name="workoutOptionsModal" options={{ headerShown: false, statusBarTranslucent: true, presentation: "transparentModal", animation: "fade" }} />
       </Stack>
     </WorkoutContextProvider>
   );
