@@ -26,7 +26,7 @@ const AddWorkoutModal = () => {
 
         setSaveWorkout(saveWorkout.filter(wk => wk != currentWorkout));
 
-        router.navigate('(tabs)/workoutPlan');
+        router.navigate('workoutPlan');
     };
 
     return (
