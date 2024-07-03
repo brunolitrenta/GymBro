@@ -36,7 +36,7 @@ const DynamicWorkout = () => {
                                 : <FontAwesome5 name="square" size={32} color="black" />
                         }
                     </Pressable>
-                    <Text className='font-rsemi text-xl w-[57%] h-12 text-center'>{item.exercicio}</Text>
+                    <Text className='font-rsemi text-xl w-[58%] text-center'>{item.exercicio}</Text>
                 </Pressable>
             </Link>
         );
