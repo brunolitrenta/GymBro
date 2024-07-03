@@ -17,9 +17,9 @@ const AddWorkoutModal = () => {
 
   const [selectedId, setSelectedId] = useState<Array<number>>([]);
 
-  const [buttonsDisabled, setButtonsDisabled] = useState<Array<string>>([])
+  const [buttonsDisabled, setButtonsDisabled] = useState<Array<string>>([]);
 
-  const { saveWorkout, setSaveWorkout } = useWorkout()
+  const { saveWorkout, setSaveWorkout } = useWorkout();
 
   const labelsSelecionadas = (arrayDeObjetos: ISaveWorkout[]) => {
     const labels: { [key: string]: boolean } = {};
@@ -43,7 +43,7 @@ const AddWorkoutModal = () => {
   function addWorkout() {
 
     if (!selectedLabel && selectedId.length == 0) {
-      Alert.alert('Atenção',  'Você precisa preencher todos as informações do seu novo treino.');
+      Alert.alert('Atenção', 'Você precisa preencher todos as informações do seu novo treino.');
       return
     }
     else if (selectedId.length == 0) {
@@ -51,9 +51,9 @@ const AddWorkoutModal = () => {
       return
     }
     else if (!selectedLabel) {
-      Alert.alert('Atenção','Você precisa escolher uma etiqueta.');
+      Alert.alert('Atenção', 'Você precisa escolher uma etiqueta.');
       return
-    }
+    };
 
     const musclesToAdd = selectedId.map(id => getMuscle(id));
 
@@ -67,11 +67,11 @@ const AddWorkoutModal = () => {
 
     setSaveWorkout((prevArray) => [...prevArray, newWorkout]);
     router.back();
-  }
+  };
 
   useEffect(() => {
-    labelsSelecionadas(saveWorkout)
-  }, [saveWorkout])
+    labelsSelecionadas(saveWorkout);
+  }, [saveWorkout]);
 
   function renderExercise({ item }: { item: IExercise }) {
 
@@ -114,13 +114,13 @@ const AddWorkoutModal = () => {
           <View className='flex-row w-full justify-around'>
             {
               workoutLabels.map((label, index) => {
-                const foundButton = buttonsDisabled.find(button => button == label)
+                const foundButton = buttonsDisabled.find(button => button == label);
 
                 return (
                   <Pressable disabled={foundButton ? true : false} onPress={() => setSelectedLabel(label)} key={index}>
                     <Text className={foundButton ? 'font-rbold text-5xl text-secondary opacity-50' : (selectedLabel == label ? 'font-rbold text-5xl text-lightgreen' : 'font-rbold text-5xl text-secondary')}>{label}</Text>
                   </Pressable>
-                )
+                );
               })
             }
           </View>
@@ -135,7 +135,7 @@ const AddWorkoutModal = () => {
                     <Pressable onPress={() => bodyAreaSelected == ba ? setBodyAreaSelected(null) : setBodyAreaSelected(ba)} key={index}>
                       <Text className={bodyAreaSelected == ba ? 'font-rbold text-3xl text-lightgreen' : 'font-rbold text-3xl text-secondary'}>{ba}</Text>
                     </Pressable>
-                  )
+                  );
                 })
               }
             </View>
@@ -152,12 +152,12 @@ const AddWorkoutModal = () => {
         <View className='absolute w-full bg-secondary h-14 top-[95%] rounded-b-2xl justify-center items-center'>
           <TouchableOpacity activeOpacity={0.7} onPress={() => { addWorkout() }} className='w-11/12 h-5/6 bg-stronggreen rounded-xl justify-evenly items-center flex-row'>
             <Text className='text-2xl font-rbold'>Adicionar treino</Text>
-            <FontAwesome5 name="check" size={28} color="black" />
+            <FontAwesome6 name="plus" size={28} color="black" />
           </TouchableOpacity>
         </View>
       </View>
     </View>
-  )
-}
+  );
+};
 
 export default AddWorkoutModal;

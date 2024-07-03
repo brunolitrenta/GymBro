@@ -6,10 +6,10 @@ import { SafeAreaView } from "react-native-safe-area-context";
 
 const Index = () => {
 
-  const dayWeek = new Date().getDay()
+  const dayWeek = new Date().getDay();
 
   return (
-    <SafeAreaView className="flex-1 flex-column items-center justify-evenly bg-primary">
+    <SafeAreaView edges={['top']} className="flex-1 flex-column items-center justify-evenly bg-primary">
       <View className="flex-row justify-between w-11/12 h-9 items-center">
         <Text className="text-3xl font-rbold text-textcolor">Bem vindo</Text>
         <Link asChild href="creditsModal">
@@ -50,7 +50,7 @@ const Index = () => {
                     <Text className="color-white font-rsemi h-6 text-lg">{weekDays[(dayWeek + index - 2 + 7) % 7]}</Text>
                     <View className="w-8 h-2 bg-grayish rounded-full" />
                   </View>
-                )
+                );
               })
             }
           </View>
@@ -73,6 +73,6 @@ const Index = () => {
       </Link>
     </SafeAreaView>
   );
-}
+};
 
 export default Index;

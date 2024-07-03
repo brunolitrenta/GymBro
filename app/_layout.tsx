@@ -25,15 +25,16 @@ const RootLayout = () => {
   return (
     <WorkoutContextProvider>
       <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false, statusBarTranslucent: true }} />
-        <Stack.Screen name="calendar" options={{ headerShown: false, statusBarTranslucent: true }} />
-        <Stack.Screen name="creditsModal" options={{ headerShown: false, statusBarTranslucent: true, presentation: "transparentModal", animation: "fade" }} />
-        <Stack.Screen name="addWorkoutModal" options={{ headerShown: false, statusBarTranslucent: true, presentation: "transparentModal", animation: "fade" }} />
-        <Stack.Screen name="[label]" options={{ headerShown: false, statusBarTranslucent: true }} />
-        <Stack.Screen name="workoutOptionsModal" options={{ headerShown: false, statusBarTranslucent: true, presentation: "transparentModal", animation: "fade" }} />
+        <Stack.Screen name="(tabs)" options={{ headerShown: false, statusBarTranslucent: true, navigationBarHidden: true }} />
+        <Stack.Screen name="workout/[label]" options={{ headerShown: false, statusBarTranslucent: true, navigationBarHidden: true }} />
+        <Stack.Screen name="calendar" options={{ headerShown: false, statusBarTranslucent: true, navigationBarHidden: true }} />
+        <Stack.Screen name="creditsModal" options={{ headerShown: false, statusBarTranslucent: true, navigationBarHidden: true, presentation: "transparentModal", animation: "fade" }} />
+        <Stack.Screen name="addWorkoutModal" options={{ headerShown: false, statusBarTranslucent: true, navigationBarHidden: true, presentation: "transparentModal", animation: "fade" }} />
+        <Stack.Screen name="workoutOptionsModal" options={{ headerShown: false, statusBarTranslucent: true, navigationBarHidden: true, presentation: "transparentModal", animation: "fade" }} />
+        <Stack.Screen name="exercise/[id]" options={{ headerShown: false, statusBarTranslucent: true, navigationBarHidden: true }} />
       </Stack>
     </WorkoutContextProvider>
   );
-}
+};
 
 export default RootLayout;

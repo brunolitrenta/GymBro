@@ -17,7 +17,7 @@ const WorkoutPlan = () => {
     return (
 
       <Link asChild href={{
-        pathname: '[label]',
+        pathname: 'workout/[label]',
         params: { label: item.label, exercises: JSON.stringify(item.exercises) },
       }}>
         <Pressable className="w-full h-20 bg-secondary mb-3 rounded-3xl flex-row justify-around p-2 items-center">
@@ -37,10 +37,10 @@ const WorkoutPlan = () => {
         </Pressable>
       </Link>
     );
-  }
+  };
 
   return (
-    <SafeAreaView className="flex-1 items-center justify-evenly bg-primary">
+    <SafeAreaView edges={['top']} className="flex-1 items-center justify-evenly bg-primary">
       <View className="flex-row w-5/6 justify-between items-center">
         <TouchableOpacity className="h-12 w-10 items-center justify-center" onPress={() => router.back()}>
           <FontAwesome6 name="arrow-left" size={32} color="textcolor" />
@@ -95,6 +95,6 @@ const WorkoutPlan = () => {
       </View>
     </SafeAreaView>
   );
-}
+};
 
 export default WorkoutPlan;

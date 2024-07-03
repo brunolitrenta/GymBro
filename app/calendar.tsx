@@ -29,7 +29,7 @@ const Calendario = () => {
     const firstDay = useMemo(() => getFirstDayOfWeek(year, monthIndex), [getFirstDayOfWeek, year, monthIndex]);
 
     return (
-        <SafeAreaView className="flex-1 flex-column justify-evenly items-center">
+        <SafeAreaView edges={['top']} className="flex-1 flex-column justify-evenly items-center">
             <View className="flex-row w-5/6 h-8 justify-between items-center">
                 <TouchableOpacity className="h-12 w-10 items-center justify-center" onPress={() => router.back()}>
                     <FontAwesome6 name="arrow-left" size={32} color="black" />
@@ -77,6 +77,6 @@ const Calendario = () => {
             <MaterialCommunityIcons name="teddy-bear" size={144} color="black" />
         </SafeAreaView>
     );
-}
+};
 
 export default Calendario;

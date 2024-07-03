@@ -12,25 +12,27 @@ const CreditsModal = () => {
                     <TouchableOpacity onPress={() => router.back()}>
                         <FontAwesome6 name="arrow-left" size={32} color="black" />
                     </TouchableOpacity>
-                    <Text className="font-rbold text-3xl">Créditos</Text>
+                    <Text className="font-rbold text-3xl">Sobre</Text>
                     <MaterialCommunityIcons name="teddy-bear" size={40} color="black" />
                 </View>
-                <View className='justify-between items-center h-2/4'>
-                    <View className='items-center'>
+                <View className='justify-evenly items-center h-4/6'>
+                    <Text className='text-2xl font-rsemi'>Criado por:</Text>
+                    <View>
                         <Text className='text-xl font-rregular'>Bruno Litrenta</Text>
                         <Text className='text-xl font-rregular'>Cauã Lopes</Text>
                         <Text className='text-xl font-rregular'>Guilherme Heinrich</Text>
                     </View>
-                    <View>
+                    <View className='items-center'>
+                        <Text className='text-xl font-rsemi'>Tecnologias utilizadas:</Text>
                         <View className='flex-row'>
                             <MaterialCommunityIcons name="android" size={40} color="#3DDC84" />
-                            <MaterialCommunityIcons name="apple" size={40} color="0D0D0D" />
+                            <MaterialCommunityIcons name="apple" size={40} color="#0D0D0D" />
                         </View>
                         <View className='flex-row'>
                             <MaterialCommunityIcons name="react" size={40} color="#087ea4" />
                             <MaterialCommunityIcons name="tailwind" size={40} color="#0ea5e9" />
                         </View>
-                        
+
                     </View>
                 </View>
             </View>

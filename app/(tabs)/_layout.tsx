@@ -34,7 +34,7 @@ const TabsLayout = () => {
                 tabBarShowLabel: false,
             }} />
         </Tabs>
-    )
-}
+    );
+};
 
 export default TabsLayout;
