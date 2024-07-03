@@ -1,7 +1,7 @@
 import { View, Text, Pressable, TouchableOpacity, FlatList, Alert } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import { router } from 'expo-router';
-import { FontAwesome5, FontAwesome6 } from '@expo/vector-icons';
+import { FontAwesome6 } from '@expo/vector-icons';
 import { workoutLabels } from '@/constants/workoutLabels';
 import { bodyAreas } from '@/constants/BodyAreas';
 import { workoutData } from '@/datasets/exercises';
