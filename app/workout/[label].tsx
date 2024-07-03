@@ -50,7 +50,7 @@ const DynamicWorkout = () => {
                 </TouchableOpacity>
                 <Text className="font-rbold text-3xl">Treino {label}</Text>
                 <Link asChild href={{
-                    pathname: 'workoutOptionsModal',
+                    pathname: 'modals/workoutOptionsModal',
                     params: { label: label }
                 }}>
                     <TouchableOpacity className="h-12 w-10 items-center justify-center">

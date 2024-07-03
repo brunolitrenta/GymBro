@@ -12,7 +12,7 @@ const Index = () => {
     <SafeAreaView edges={['top']} className="flex-1 flex-column items-center justify-evenly bg-primary">
       <View className="flex-row justify-between w-11/12 h-9 items-center">
         <Text className="text-3xl font-rbold text-textcolor">Bem vindo</Text>
-        <Link asChild href="creditsModal">
+        <Link asChild href="modals/creditsModal">
           <Pressable className="bg-lightgreen w-14 h-14 justify-center items-center rounded-full">
             <MaterialCommunityIcons name="teddy-bear" size={38} color="black" />
           </Pressable>

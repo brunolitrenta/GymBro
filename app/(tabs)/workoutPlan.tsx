@@ -46,7 +46,7 @@ const WorkoutPlan = () => {
           <FontAwesome6 name="arrow-left" size={32} color="textcolor" />
         </TouchableOpacity>
         <Text className="font-rbold text-3xl color-textcolor">Treinos</Text>
-        <Link asChild href="addWorkoutModal">
+        <Link asChild href="modals/addWorkoutModal">
           <TouchableOpacity className="h-12 w-10 items-center justify-center">
             <AntDesign name="pluscircle" size={40} color="#A3A65B" />
           </TouchableOpacity>
